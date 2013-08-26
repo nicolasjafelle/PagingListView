@@ -7,8 +7,10 @@ buildscript {
     }
 }
 apply plugin: 'android-library'
+apply plugin: 'maven'
 
 repositories {
+    maven { url '../paginglistview_aar' }
     mavenCentral()
 }
 
@@ -19,9 +21,20 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 18
+        versionCode 1
+        versionName '1.0'
     }
 }
 
-dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
+
+group = 'com.paginglistview'
+archivesBaseName = 'paging-listview'
+version = '1.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri("../paginglistview_aar"))
+        }
+    }
 }

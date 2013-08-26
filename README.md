@@ -5,13 +5,21 @@ PagingListView has the ability to add more items on it like Gmail does. Basicall
 While "pull to refresh" pattern works at the top of the List and show the latest added items, the PagingListView works at the bottom of the List and shows the first added items.﻿
 
 
-Instructions
+Instructions 1
 ============
 
 1. Clone the git repo
 2. Import the "PagingListView" module into your Android-gradle project.
 3. Add "PagingListView" module in your settings.gradle
 4. DONE
+
+
+Instructions 2
+============
+
+1. Add Nicolas Jafelle's Maven repo to your build.gradle
+2. add this dependency: 'com.paginglistview:paging-listview:1.0'
+3. DONE
 
 
 How to Use it
