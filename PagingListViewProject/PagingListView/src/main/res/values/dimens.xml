@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="loading_view_progress_size">50dp</dimen>
+	<dimen name="loading_view_margin_layout">10dp</dimen>
+	<dimen name="loading_view_margin_right">5dp</dimen>
+
+</resources>
