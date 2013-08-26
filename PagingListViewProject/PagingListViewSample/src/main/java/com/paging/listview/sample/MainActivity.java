@@ -1,11 +1,15 @@
 package com.paging.listview.sample;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.HeaderViewListAdapter;
+import android.widget.ListAdapter;
 
+import com.paging.listview.PagingBaseAdapter;
 import com.paging.listview.PagingListView;
 
 import java.util.ArrayList;
@@ -22,6 +26,8 @@ public class MainActivity extends Activity {
 
 	private int pager = 0;
 
+	private ProgressDialog loadingDialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,19 +37,36 @@ public class MainActivity extends Activity {
 		adapter = new MyPagingAdaper();
 
 		initData();
+		createProgressDialog();
 
 		listView.setHasMoreItems(true);
 		listView.setPagingableListener(new PagingListView.Pagingable() {
 			@Override
 			public void onLoadMoreItems() {
 				if(pager < 3) {
-					new CountryAsyncTask().execute();
+					new CountryAsyncTask(false).execute();
 				}else {
 					listView.onFinishLoading(false, null);
 				}
 			}
 		});
+	}
 
+	public void createProgressDialog() {
+		loadingDialog = new ProgressDialog(this);
+		loadingDialog.setIndeterminate(true);
+		loadingDialog.setMessage(getString(R.string.loading_countries));
+	}
+
+	private void clearData() {
+		if(listView.getAdapter() != null) {
+			pager = 0;
+			adapter = (MyPagingAdaper)((HeaderViewListAdapter)listView.getAdapter()).getWrappedAdapter();
+			adapter.removeAllItems();
+			listView = null;
+			listView = (PagingListView) findViewById(R.id.paging_list_view);
+			adapter = new MyPagingAdaper();
+		}
 	}
 
 	@Override
@@ -57,12 +80,15 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.start_demo:
-				new CountryAsyncTask().execute();
+				clearData();
+				new CountryAsyncTask(true).execute();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
 	}
+
+
 
 	private void initData() {
 		firstList = new ArrayList<String>();
@@ -108,6 +134,18 @@ public class MainActivity extends Activity {
 
 
 	private class CountryAsyncTask extends SafeAsyncTask<List<String>> {
+		private boolean showLoading;
+		public CountryAsyncTask(boolean showLoading) {
+			this.showLoading = showLoading;
+		}
+
+		@Override
+		protected void onPreExecute() throws Exception {
+			super.onPreExecute();
+			if(showLoading) {
+				loadingDialog.show();
+			}
+		}
 
 		@Override
 		public List<String> call() throws Exception {
@@ -130,15 +168,20 @@ public class MainActivity extends Activity {
 		@Override
 		protected void onSuccess(List<String> newItems) throws Exception {
 			super.onSuccess(newItems);
-
 			pager++;
 			if(listView.getAdapter() == null) {
 				listView.setAdapter(adapter);
 			}
 			listView.onFinishLoading(true, newItems);
-
 		}
 
+		@Override
+		protected void onFinally() throws RuntimeException {
+			super.onFinally();
+			if(loadingDialog.isShowing()) {
+				loadingDialog.dismiss();
+			}
+		}
 	}
 
 }

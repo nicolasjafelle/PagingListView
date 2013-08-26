@@ -1,6 +1,5 @@
 package com.paging.listview.sample;
 
-import android.*;
 import android.R;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,7 @@ import android.widget.TextView;
 
 import com.paging.listview.PagingBaseAdapter;
 
-/**
- * Created by nicolas on 8/25/13.
- */
+
 public class MyPagingAdaper extends PagingBaseAdapter<String> {
 
 	@Override

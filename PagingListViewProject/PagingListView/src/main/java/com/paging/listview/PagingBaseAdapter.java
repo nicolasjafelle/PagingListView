@@ -23,6 +23,10 @@ public abstract class PagingBaseAdapter<T> extends BaseAdapter {
 		notifyDataSetChanged();
 	}
 
+	public void removeAllItems() {
+		this.items.clear();
+		notifyDataSetChanged();
+	}
 
 
 }
