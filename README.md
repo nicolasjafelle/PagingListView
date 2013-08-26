@@ -18,9 +18,24 @@ How to Use it
 ================
 
 Simple create your PagingAdapter and add it to com.paging.listview.PagingListView.<br>
-You have to implements the new Pagingable interface and its onLoadMoreItems() method.<br>
+You have to implements the new Pagingable interface and its onLoadMoreItems() method. For example:<br>
+``` java
+listView.setHasMoreItems(true);
+		listView.setPagingableListener(new PagingListView.Pagingable() {
+			@Override
+			public void onLoadMoreItems() {
+				if(pager < 3) {
+					new CountryAsyncTask(false).execute();
+				}else {
+					listView.onFinishLoading(false, null);
+				}
+			}
+		});
 
-Also remember to use this package in your layout files: <b>com.paging.listview.PagingListView</b>
+```
+Also remember to use this package in your layout files: 
+
+	<b>com.paging.listview.PagingListView</b>
 
 
 Developed By
