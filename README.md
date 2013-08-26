@@ -38,6 +38,7 @@ Finally you can use the onFinishLoading(boolean hasMoreItems, List newItems) met
 listView.onFinishLoading(true, newItems);
 ```
 Also remember to use this package in your layout files: 
+
 	<com.paging.listview.PagingListView
         	android:id="@+id/paging_list_view"
         	android:layout_width="match_parent"
