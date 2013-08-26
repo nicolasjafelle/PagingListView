@@ -1,18 +1,32 @@
 PagingListView
 ==============
 
-PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView with the ability to add more items on it when reaches the end of the list.
+PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView with the ability to add more items on it when reaches the end of the list.<br>
+While "pull to refresh" pattern works at the top of the List and show the latest added items, the PagingListView works at the bottom of the List and shows the first added items.﻿
 
-Developed By
-================
 
-* Nicolas Jafelle - <nicolasjafelle@gmail.com>
+Instructions
+============
+
+1. Clone the git repo
+2. Import the "PagingListView" module into your Android-gradle project.
+3. Add "PagingListView" module in your settings.gradle
+4. DONE
 
 
 How to Use it
 ================
 
-Check the "PagingListViewSample" project to see how to use it. I will update this section with more details soon!!
+Simple create your PagingAdapter and add it to com.paging.listview.PagingListView.<br>
+You have to implements the new Pagingable interface and its onLoadMoreItems() method.<br>
+
+Also remember to use this package in your layout files: <com.paging.listview.PagingListView>
+
+
+Developed By
+================
+
+* Nicolas Jafelle - <nicolasjafelle@gmail.com>
 
 
 License
