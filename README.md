@@ -34,10 +34,8 @@ listView.setPagingableListener(new PagingListView.Pagingable() {
 ```
 
 Finally you can use the onFinishLoading(boolean hasMoreItems, List newItems) method to update the list.
-
 ``` java
 listView.onFinishLoading(true, newItems);
-
 
 ```
 Also remember to use this package in your layout files: 
