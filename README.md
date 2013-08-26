@@ -1,14 +1,18 @@
 PagingListView
 ==============
 
-PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView which has a footer of "Loading" at the end which allows to load more items.
-
+PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView with the ability to add more items on it when reaches the end of the list.
 
 Developed By
 ================
 
 * Nicolas Jafelle - <nicolasjafelle@gmail.com>
 
+
+How to Use it
+================
+
+Check the "PagingListViewSample" project to see how to use it. I will update this section with more details soon!!
 
 
 License
