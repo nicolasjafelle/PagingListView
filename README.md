@@ -20,11 +20,8 @@ How to Use it
 Simple create your PagingAdapter and add it to com.paging.listview.PagingListView.<br>
 You have to implements the new Pagingable interface and its onLoadMoreItems() method.<br>
 
-Also remember to use this package in your layout files: 
+Also remember to use this package in your layout files: <b>com.paging.listview.PagingListView</b>
 
-```
-<com.paging.listview.PagingListView>
-´´´
 
 Developed By
 ================
