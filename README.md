@@ -17,7 +17,7 @@ Instructions 1
 Instructions 2
 ============
 
-1. Add Nicolas Jafelle's Maven repo to your build.gradle
+1. Add Nicolas Jafelle's Maven repo to your build.gradle: <a href="https://github.com/nicolasjafelle/maven-repo">Instructions</a>
 2. add this dependency: 'com.paginglistview:paging-listview:1.0'
 3. DONE
 
