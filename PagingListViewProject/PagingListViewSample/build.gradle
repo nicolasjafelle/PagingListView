@@ -1,21 +1,14 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-    }
-}
 apply plugin: 'android'
 
 dependencies {
     compile files('libs/android-support-v4.jar')
-    compile project(':PagingListView')
+//    compile project(':PagingListView')
+    compile 'com.github.nicolasjafelle:paginglistview:1.0'
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    buildToolsVersion "19.0.3"
 
     defaultConfig {
         minSdkVersion 9

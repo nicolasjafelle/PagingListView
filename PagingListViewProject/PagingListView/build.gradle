@@ -1,22 +1,9 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-    }
-}
 apply plugin: 'android-library'
 apply plugin: 'maven'
 
-repositories {
-    maven { url '../paginglistview_aar' }
-    mavenCentral()
-}
-
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    buildToolsVersion "19.0.3"
 
     defaultConfig {
         minSdkVersion 9
@@ -27,14 +14,16 @@ android {
 }
 
 
-group = 'com.paginglistview'
-archivesBaseName = 'paging-listview'
-version = '1.0'
+//group = 'com.paginglistview'
+//archivesBaseName = 'paging-listview'
+//version = '1.0'
+//
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: uri("../paginglistview_aar"))
+//        }
+//    }
+//}
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: uri("../paginglistview_aar"))
-        }
-    }
-}
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

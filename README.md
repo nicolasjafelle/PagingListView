@@ -4,6 +4,15 @@ PagingListView
 PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView with the ability to add more items on it when reaches the end of the list.<br>
 While "pull to refresh" pattern works at the top of the List and show the latest added items, the PagingListView works at the bottom of the List and shows the first added items.﻿
 
+Instructions - Maven Central
+============
+
+1. Add this library in your build.gradle:
+``` 
+dependencies {
+    compile 'com.github.nicolasjafelle:refreshmenuitem:1.0'
+}
+```
 
 Instructions 1
 ============
