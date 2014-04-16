@@ -8,7 +8,8 @@ Instructions - Maven Central
 ============
 
 1. Add this library in your build.gradle:
-``` 
+
+```groovy
 dependencies {
     compile 'com.github.nicolasjafelle:refreshmenuitem:1.0'
 }
@@ -27,7 +28,7 @@ Instructions 2
 ============
 
 1. Add Nicolas Jafelle's Maven repo to your build.gradle: <a href="https://github.com/nicolasjafelle/maven-repo">Instructions</a>
-2. add this dependency: 'com.paginglistview:paging-listview:1.0'
+2. Add this dependency: `com.paginglistview:paging-listview:1.0`
 3. DONE
 
 
@@ -41,9 +42,9 @@ listView.setHasMoreItems(true);
 listView.setPagingableListener(new PagingListView.Pagingable() {
 	@Override
 	public void onLoadMoreItems() {
-		if(pager < 3) {
+		if (pager < 3) {
 			new CountryAsyncTask(false).execute();
-		}else {
+		} else {
 			listView.onFinishLoading(false, null);
 		}
 	}
@@ -56,11 +57,12 @@ listView.onFinishLoading(true, newItems);
 ```
 Also remember to use this package in your layout files: 
 
-	<com.paging.listview.PagingListView
-        	android:id="@+id/paging_list_view"
-        	android:layout_width="match_parent"
-        	android:layout_height="match_parent"/>
-
+```xml
+<com.paging.listview.PagingListView
+	android:id="@+id/paging_list_view"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"/>
+```
 
 Developed By
 ================
