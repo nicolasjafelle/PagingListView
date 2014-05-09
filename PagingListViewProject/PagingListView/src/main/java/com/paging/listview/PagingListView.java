@@ -21,6 +21,8 @@ public class PagingListView extends ListView {
 	private Pagingable pagingableListener;
 	private LoadingView loadinView;
 
+    private OnScrollListener mListener;
+
 	public PagingListView(Context context) {
 		super(context);
 		init();
@@ -76,27 +78,39 @@ public class PagingListView extends ListView {
 		isLoading = false;
 		loadinView = new LoadingView(getContext());
 		addFooterView(loadinView);
-		setOnScrollListener(new OnScrollListener() {
-			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				//DO NOTHING...
-			}
+		super.setOnScrollListener(new OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                //Dispatch to child OnScrollListener
+                if (mListener != null) {
+                    mListener.onScrollStateChanged(view, scrollState);
+                }
+            }
 
-			@Override
-			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-				if (totalItemCount > 0) {
-					int lastVisibleItem = firstVisibleItem + visibleItemCount;
-					if (!isLoading && hasMoreItems && (lastVisibleItem == totalItemCount) ) {
-						if(pagingableListener != null) {
-							isLoading = true;
-							pagingableListener.onLoadMoreItems();
-						}
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-					}
-				}
-			}
-		});
+                //Dispatch to child OnScrollListener
+                if (mListener != null) {
+                    mListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
+                }
+
+                if (totalItemCount > 0) {
+                    int lastVisibleItem = firstVisibleItem + visibleItemCount;
+                    if (!isLoading && hasMoreItems && (lastVisibleItem == totalItemCount)) {
+                        if (pagingableListener != null) {
+                            isLoading = true;
+                            pagingableListener.onLoadMoreItems();
+                        }
+
+                    }
+                }
+            }
+        });
 	}
 
-
+    @Override
+    public void setOnScrollListener(OnScrollListener l) {
+        mListener = l;
+    }
 }
