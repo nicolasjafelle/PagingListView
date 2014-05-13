@@ -21,7 +21,7 @@ public class PagingListView extends ListView {
 	private Pagingable pagingableListener;
 	private LoadingView loadinView;
 
-    private OnScrollListener mListener;
+    private OnScrollListener onScrollListener;
 
 	public PagingListView(Context context) {
 		super(context);
@@ -82,8 +82,8 @@ public class PagingListView extends ListView {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 //Dispatch to child OnScrollListener
-                if (mListener != null) {
-                    mListener.onScrollStateChanged(view, scrollState);
+                if (onScrollListener != null) {
+                    onScrollListener.onScrollStateChanged(view, scrollState);
                 }
             }
 
@@ -91,8 +91,8 @@ public class PagingListView extends ListView {
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
                 //Dispatch to child OnScrollListener
-                if (mListener != null) {
-                    mListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
+                if (onScrollListener != null) {
+                    onScrollListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
                 }
 
                 if (totalItemCount > 0) {
@@ -110,7 +110,7 @@ public class PagingListView extends ListView {
 	}
 
     @Override
-    public void setOnScrollListener(OnScrollListener l) {
-        mListener = l;
+    public void setOnScrollListener(OnScrollListener listener) {
+        onScrollListener = listener;
     }
 }
