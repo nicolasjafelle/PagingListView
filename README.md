@@ -11,7 +11,7 @@ Instructions - Maven Central
 
 ```groovy
 dependencies {
-    compile 'com.github.nicolasjafelle:paginglistview:1.0'
+    compile 'com.github.nicolasjafelle:paginglistview:1.1'
 }
 ```
 
