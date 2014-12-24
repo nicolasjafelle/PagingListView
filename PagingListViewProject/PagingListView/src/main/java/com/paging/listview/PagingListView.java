@@ -1,13 +1,13 @@
 package com.paging.listview;
 
+import java.util.List;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.AbsListView;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
-import java.util.List;
 
 
 public class PagingListView extends ListView {
@@ -55,6 +55,15 @@ public class PagingListView extends ListView {
 		if(!this.hasMoreItems) {
 			removeFooterView(loadinView);
 		}
+		else if(findViewById(R.id.loading_view) == null){
+			addFooterView(loadinView);
+			// pre-Kitkat needs adapter sets after adding footer view
+			// see http://developer.android.com/reference/android/widget/ListView.html#addFooterView(android.view.View)
+			if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
+				ListAdapter adapter = ((HeaderViewListAdapter)getAdapter()).getWrappedAdapter();
+				setAdapter(adapter);
+			}
+		}
 	}
 
 	public boolean hasMoreItems() {
@@ -95,15 +104,13 @@ public class PagingListView extends ListView {
                     onScrollListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
                 }
 
-                if (totalItemCount > 0) {
-                    int lastVisibleItem = firstVisibleItem + visibleItemCount;
-                    if (!isLoading && hasMoreItems && (lastVisibleItem == totalItemCount)) {
-                        if (pagingableListener != null) {
-                            isLoading = true;
-                            pagingableListener.onLoadMoreItems();
-                        }
-
+                int lastVisibleItem = firstVisibleItem + visibleItemCount;
+                if (!isLoading && hasMoreItems && (lastVisibleItem == totalItemCount)) {
+                    if (pagingableListener != null) {
+                        isLoading = true;
+                        pagingableListener.onLoadMoreItems();
                     }
+
                 }
             }
         });

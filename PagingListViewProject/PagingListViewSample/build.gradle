@@ -1,14 +1,13 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile files('libs/android-support-v4.jar')
-//    compile project(':PagingListView')
-    compile 'com.github.nicolasjafelle:paginglistview:1.0'
+    compile project(':PagingListView')
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 9
