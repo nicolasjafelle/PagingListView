@@ -57,12 +57,8 @@ public class PagingListView extends ListView {
 		}
 		else if(findViewById(R.id.loading_view) == null){
 			addFooterView(loadinView);
-			// pre-Kitkat needs adapter sets after adding footer view
-			// see http://developer.android.com/reference/android/widget/ListView.html#addFooterView(android.view.View)
-			if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
-				ListAdapter adapter = ((HeaderViewListAdapter)getAdapter()).getWrappedAdapter();
-				setAdapter(adapter);
-			}
+			ListAdapter adapter = ((HeaderViewListAdapter)getAdapter()).getWrappedAdapter();
+			setAdapter(adapter);
 		}
 	}
 
