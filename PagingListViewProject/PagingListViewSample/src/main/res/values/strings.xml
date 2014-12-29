@@ -2,6 +2,6 @@
 <resources>
 
     <string name="app_name">PagingListView Sample</string>
-    <string name="start_demo">Start demo</string>
+    <string name="refresh">Refresh</string>
     <string name="loading_countries">Loading countries&#8230;</string>
 </resources>
