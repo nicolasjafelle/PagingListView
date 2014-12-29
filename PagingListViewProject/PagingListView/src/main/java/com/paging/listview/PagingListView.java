@@ -19,7 +19,7 @@ public class PagingListView extends ListView {
 	private boolean isLoading;
 	private boolean hasMoreItems;
 	private Pagingable pagingableListener;
-	private LoadingView loadinView;
+	private LoadingView loadingView;
 
     private OnScrollListener onScrollListener;
 
@@ -53,10 +53,10 @@ public class PagingListView extends ListView {
 	public void setHasMoreItems(boolean hasMoreItems) {
 		this.hasMoreItems = hasMoreItems;
 		if(!this.hasMoreItems) {
-			removeFooterView(loadinView);
+			removeFooterView(loadingView);
 		}
 		else if(findViewById(R.id.loading_view) == null){
-			addFooterView(loadinView);
+			addFooterView(loadingView);
 			ListAdapter adapter = ((HeaderViewListAdapter)getAdapter()).getWrappedAdapter();
 			setAdapter(adapter);
 		}
@@ -81,8 +81,8 @@ public class PagingListView extends ListView {
 
 	private void init() {
 		isLoading = false;
-		loadinView = new LoadingView(getContext());
-		addFooterView(loadinView);
+        loadingView = new LoadingView(getContext());
+		addFooterView(loadingView);
 		super.setOnScrollListener(new OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
