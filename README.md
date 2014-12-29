@@ -1,6 +1,8 @@
 PagingListView
 ==============
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PagingListView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/251)
+
 PagingListView has the ability to add more items on it like Gmail does. Basically is a ListView with the ability to add more items on it when reaches the end of the list.<br>
 While "pull to refresh" pattern works at the top of the List and show the latest added items, the PagingListView works at the bottom of the List and shows the first added items.﻿
 
