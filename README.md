@@ -13,11 +13,11 @@ Instructions - Maven Central
 
 ```groovy
 dependencies {
-    compile 'com.github.nicolasjafelle:paginglistview:1.1'
+    compile 'com.github.nicolasjafelle:paginglistview:1.2'
 }
 ```
 
-Instructions 1
+Instructions - Library Module
 ============
 
 1. Clone the git repo
@@ -25,13 +25,6 @@ Instructions 1
 3. Add "PagingListView" module in your settings.gradle
 4. DONE
 
-
-Instructions 2
-============
-
-1. Add Nicolas Jafelle's Maven repo to your build.gradle: <a href="https://github.com/nicolasjafelle/maven-repo">Instructions</a>
-2. Add this dependency: `com.paginglistview:paging-listview:1.0`
-3. DONE
 
 
 How to Use it

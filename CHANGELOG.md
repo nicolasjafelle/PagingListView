@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 1.2 *(2014-12-28)* - NOT YET UPLOADED TO MAVEN CENTRAL
+Version 1.2 *(2014-12-28)*
 ----------------------------
 
  * Merged: PagingListView can now reload if requested. Before, after clearing the list, setting hasMoreItems to true had no
