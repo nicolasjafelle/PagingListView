@@ -13,6 +13,9 @@ android {
     }
 }
 
+dependencies {
+    compile 'com.android.support:support-v4:21.0.+'
+}
 
 //group = 'com.paginglistview'
 //archivesBaseName = 'paging-listview'
