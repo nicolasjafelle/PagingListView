@@ -1,5 +1,7 @@
 package com.paging.listview;
 
+import android.support.annotation.StringRes;
+import android.widget.TextView;
 import java.util.List;
 
 import android.content.Context;
@@ -8,7 +10,6 @@ import android.widget.AbsListView;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
 
 public class PagingListView extends ListView {
 
@@ -45,6 +46,14 @@ public class PagingListView extends ListView {
 	public void setIsLoading(boolean isLoading) {
 		this.isLoading = isLoading;
 	}
+
+  public void setLoadingText(@StringRes int stringRes) {
+    ((TextView) loadingView.findViewById(R.id.video_item_label)).setText(stringRes);
+  }
+
+  public void setLoadingText(String text) {
+    ((TextView) loadingView.findViewById(R.id.video_item_label)).setText(text);
+  }
 
 	public void setPagingableListener(Pagingable pagingableListener) {
 		this.pagingableListener = pagingableListener;
