@@ -23,6 +23,11 @@ public abstract class PagingBaseAdapter<T> extends BaseAdapter {
 		notifyDataSetChanged();
 	}
 
+	public void addMoreItems(int location, List<T> newItems) {
+		this.items.addAll(location, newItems);
+		notifyDataSetChanged();
+	}
+
 	public void removeAllItems() {
 		this.items.clear();
 		notifyDataSetChanged();
