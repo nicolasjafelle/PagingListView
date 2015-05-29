@@ -13,7 +13,6 @@ android {
     }
 }
 
-
 //group = 'com.paginglistview'
 //archivesBaseName = 'paging-listview'
 //version = '1.0'
