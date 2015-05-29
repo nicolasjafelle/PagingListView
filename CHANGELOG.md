@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.3 *(2015-05-29)*
+----------------------------
+
+ * Merged: Add addMoreItems(int, List<T>) to the PagingBaseAdapter.
+
 Version 1.2 *(2014-12-28)*
 ----------------------------
 
