@@ -6,6 +6,7 @@ import android.widget.AbsListView;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -111,5 +112,35 @@ public class PagingListView extends ListView {
 
     public interface Pagingable {
         void onLoadMoreItems();
+    }
+
+
+    /*
+     *
+     * Customize Loading View
+     *
+     */
+
+    public void setLoadingLabelText(String label) {
+        loadingView.loadingLabel.setText(label);
+    }
+
+    public void setLoadingLabelColor(int color) {
+        loadingView.loadingLabel.setTextColor(color);
+    }
+
+    public void setLoadingLabel(TextView textView) {
+        if (textView != null) {
+            loadingView.loadingLabel = textView;
+        }
+    }
+
+    public void setProgressBarColor(int color) {
+
+        try {
+            loadingView.progressBar.getIndeterminateDrawable().setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
+        } catch (NullPointerException e) {
+
+        }
     }
 }
